@@ -9,10 +9,21 @@ export class LoanDetailsService {
     constructor(@InjectModel('LoanDetails') private readonly loanDetailsModel: Model<ILoanDetails>) {}
 
     async createLoanDetails(loanDetailsDto: CreateLoanDetailsDto): Promise<void> {
-        try{
+        try {
             await this.loanDetailsModel.collection.insertOne(loanDetailsDto);
         } catch(e) {
             throw new InternalServerErrorException({ meassage: "Database crashed" });
+        }
+    }
+
+    async getLoanDetails(): Promise<any[]> {
+        try {
+            const result = await this.loanDetailsModel.aggregate([
+                { $match: {}}
+            ]);
+            return result;
+        } catch(e) {
+            throw new InternalServerErrorException({ message: "Database not responding" });
         }
     }
 }

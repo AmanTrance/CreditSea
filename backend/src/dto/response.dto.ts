@@ -1,6 +1,6 @@
 export class ApiResponse {
-    data: object;
-    constructor(data: object) {
+    data: any;
+    constructor(data: any) {
         this.data = data;
     }   
 }

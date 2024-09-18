@@ -1,5 +1,6 @@
-import { TableColumnsType } from "antd"
-import { Status } from "./columns"
+import { TableColumnsType } from "antd";
+import { Status } from "./columns";
+import { v4 as uuid } from "uuid";
 
 export interface LoanDetailsAdmin{
     "User Details": string,
@@ -11,18 +12,22 @@ export interface LoanDetailsAdmin{
 export const adminColumns: TableColumnsType<LoanDetailsAdmin> = [
     {
         title: "User Details",
-        dataIndex: "User Details"
+        dataIndex: "User Details",
+        key: uuid()
     },
     {
         title: "Customer name",
-        dataIndex: "Customer name"
+        dataIndex: "Customer name",
+        key: uuid()
     },
     {
         title: "Date",
-        dataIndex: "Date"
+        dataIndex: "Date",
+        key: uuid()
     },
     {
         title: "Status",
-        dataIndex: "Status"
+        dataIndex: "Status",
+        key: uuid()
     }
 ] 

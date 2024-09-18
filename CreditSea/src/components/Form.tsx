@@ -28,7 +28,11 @@ function Form() {
             address1: address1.value,
             address2: address2.value
         }
-        await axios.post("http://localhost:3000/loan", loanDetails);
+        try {
+            await axios.post("http://localhost:3000/loan/create", loanDetails);
+        } catch(e) {
+            alert("Fill the form according to the instructions");
+        }
         window.location.reload();
     }
 
@@ -54,7 +58,7 @@ function Form() {
                     <input required type="text" className="bg-white w-3/4 h-14 rounded-lg p-2 font-semibold outline-none border-2 border-slate-300" placeholder="Employment status" id="status"/>
                     <label className="w-3/4 text-black font-semibold text-xl p-1 cursor-pointer" htmlFor="address1">Employment address</label>
                     <input required type="text" className="bg-white w-3/4 h-14 rounded-lg p-2 font-semibold outline-none border-2 border-slate-300" placeholder="Employment address" id="address1"/>
-                    <label className="w-3/4 text-black font-semibold text-xl p-1 cursor-pointer" htmlFor="address2">Employment address</label>
+                    <label className="w-3/4 text-black font-semibold text-xl p-1 cursor-pointer" htmlFor="address2">Home address</label>
                     <input required type="text" className="bg-white w-3/4 h-14 rounded-lg p-2 font-semibold outline-none border-2 border-slate-300" placeholder="Employment address" id="address2"/>
                 </div>
             </div>

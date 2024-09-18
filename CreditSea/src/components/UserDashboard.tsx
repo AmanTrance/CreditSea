@@ -3,12 +3,33 @@ import { Table } from "antd";
 import { columns } from "../utils/columns";
 import Icon from "../assets/Icon.png";
 import Form from "./Form";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Close from "../assets/close.png";
 import Navbar from "./Navbar";
+import axios from "axios";
+
+type ResponseData = {
+    fullName: string,
+    loanTenure: number,
+    reason?: string,
+    requiredAmount: string,
+    employmentStatus: string,
+    address1: string,
+    address2: string,
+    _id: string
+}
 
 function UserDashboard() {
     const [form, setForm] = useState<boolean>(false);
+
+    useEffect(() => {
+        const handleData = async () => {
+            const response = await axios.get("http://localhost:3000/loan/many");
+            const data: ResponseData[] = response.data as ResponseData[];
+            console.log(data);
+        }
+        handleData();
+    }, [])
 
     const handleForm = () => {
         if (form === false) {

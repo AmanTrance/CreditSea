@@ -1,4 +1,5 @@
-import { TableColumnsType } from "antd"
+import { TableColumnsType } from "antd";
+import { v4 as uuid } from "uuid";
 
 export enum Status{
     PENDING = 0,
@@ -17,18 +18,22 @@ export interface LoanDetails{
 export const columns: TableColumnsType<LoanDetails> = [
     {
         title: "Loan Officer",
-        dataIndex: "Loan Officer"
+        dataIndex: "Loan Officer",
+        key: uuid()
     },
     {
         title: "Amount",
-        dataIndex: "Amount"
+        dataIndex: "Amount",
+        key: uuid()
     },
     {
         title: "Date Applied",
-        dataIndex: "Date Applied"
+        dataIndex: "Date Applied",
+        key: uuid()
     },
     {
         title: "Status",
-        dataIndex: "Status"
+        dataIndex: "Status",
+        key: uuid()
     }
 ] 
