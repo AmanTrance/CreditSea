@@ -29,6 +29,7 @@ function Form() {
             address2: address2.value
         }
         await axios.post("http://localhost:3000/loan", loanDetails);
+        window.location.reload();
     }
 
   return (
