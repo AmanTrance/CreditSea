@@ -68,7 +68,7 @@ function Form() {
                 </div>
             </div>
             <div className="flex justify-center items-center">
-                <button className="bg-green-200 w-28 h-10 rounded-lg font-extrabold hover:bg-green-400 transition-all duration-300 ease-in" onClick={handleForm}>Submit</button>
+                <button className="bg-green-200 w-28 sm:h-12 h-10 rounded-lg font-extrabold hover:bg-green-400 border shadow transition-all duration-300 ease-in" onClick={handleForm}>Submit</button>
             </div>
         </div>
     </div>
