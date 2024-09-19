@@ -3,10 +3,13 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { LoanDetailsModule } from './loan-details/loan-details.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { config } from 'dotenv';
+
+config();
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb+srv://amanhobo:ceaHVMMdhMFTeIO5@cluster0.nh1f8qx.mongodb.net/', {
+    MongooseModule.forRoot(`${process.env.MONGO_URL}`, {
       dbName: 'CreditSea'
     }),
     LoanDetailsModule
