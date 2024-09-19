@@ -52,7 +52,7 @@ function UserDashboard() {
   return (
     <div className="h-full w-full">
     { !form && <Navbar isUser={true}/> }
-    { form && <div className="absolute flex justify-center items-center w-full h-14"><img src={Close} className="h-6 w-6 z-20 cursor-pointer rounded-xl" onClick={handleForm}></img></div> }
+    { form && <div className="absolute flex justify-center items-center w-full h-14"><img src={Close} className="h-4 w-4 sm:h-6 sm:w-6  z-20 cursor-pointer rounded-xl" onClick={handleForm}></img></div> }
     <div className="flex flex-col justify-center items-center h-full w-full bg-slate-200">
         { form && <Form/> }
         <div className="grid grid-rows-1 h-1/6 w-3/4">
