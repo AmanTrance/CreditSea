@@ -27,8 +27,8 @@ export const verifierColumns: TableColumnsType<LoanDetailsVerifier> = [
         key: uuid()
     },
     {
-        title: "Status",
-        dataIndex: "Status",
+        title: "Action",
+        dataIndex: "Action",
         key: uuid()
     }
 ] 
