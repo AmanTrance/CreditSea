@@ -1,5 +1,6 @@
 import { Optional } from "@nestjs/common";
-import { IsNotEmpty, IsNumber, IsString } from "class-validator";
+import { IsEnum, IsNotEmpty, IsNumber, IsString } from "class-validator";
+import { LoanStatus } from "src/enums/status.enum";
 
 export class CreateLoanDetailsDto {
     @IsString()
@@ -29,4 +30,10 @@ export class CreateLoanDetailsDto {
     @IsString()
     @IsNotEmpty()
     address2: string;
+
+    @IsNotEmpty()
+    dateApplied: Date;
+
+    @IsEnum(LoanStatus)
+    loanStatus: LoanStatus 
 }

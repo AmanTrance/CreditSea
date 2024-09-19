@@ -2,17 +2,18 @@ import { TableColumnsType } from "antd";
 import { v4 as uuid } from "uuid";
 
 export enum Status{
-    PENDING = 0,
-    VERIFIED = 1,
-    REJECTED = 2,
-    APRROVED = 3
+    PENDING = "Pending",
+    VERIFIED = "Verified",
+    REJECTED = "Rejected",
+    APRROVED = "Approved"
 }
 
 export interface LoanDetails{
     "Loan Officer": string,
     "Amount": string,
     "Date Applied": string,
-    "Status": Status
+    "Status": Status,
+    "key" : string
 }
 
 export const columns: TableColumnsType<LoanDetails> = [

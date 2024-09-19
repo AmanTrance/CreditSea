@@ -1,4 +1,5 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose"
+import { LoanStatus } from "src/enums/status.enum";
 
 @Schema()
 export class LoanDetails {
@@ -21,7 +22,13 @@ export class LoanDetails {
     address1: string;
 
     @Prop()
-    address2: string
+    address2: string;
+
+    @Prop()
+    dateApplied: Date;
+
+    @Prop()
+    loanStatus: LoanStatus;
 }
 
 export const LoanDetailsSchema = SchemaFactory.createForClass(LoanDetails);

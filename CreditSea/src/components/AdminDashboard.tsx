@@ -26,10 +26,37 @@ import Incomes from "../assets/income.png";
 import Users from "../assets/usersdash.png";
 import Accounts from "../assets/accountsdash.png";
 import { Table } from "antd";
-import { adminColumns } from "../utils/admincolumns";
+import { adminColumns, LoanDetailsAdmin } from "../utils/admincolumns";
 import Navbar from "./Navbar";
+import { v4 as uuid } from "uuid";
+import { useEffect, useState } from "react";
+import { ResponseData } from "./UserDashboard";
+import axios from "axios";
 
 function AdminDashboard() {
+    const [loanData, setLoanData] = useState<LoanDetailsAdmin[]>([]);
+
+    useEffect(() => {
+        const handleData = async () => {
+            const response = await axios.get("http://localhost:3000/loan/many");
+            const data: { data?: ResponseData[] } = response.data as { data?: ResponseData[] };
+            if (data.data !== undefined) {
+                let result: LoanDetailsAdmin[] = [];
+                for (let i of data.data) {
+                    result.push({
+                        "User Details": "just a check data",
+                        "Customer name": i.fullName,
+                        "Date": i.dateApplied.toString(),
+                        "Action": i.loanStatus,
+                        "key": uuid()
+                    });
+                }
+                setLoanData(result);
+            }
+        }
+        handleData();
+    }, []);
+
   return (
     <div className="h-full w-full">
         <Navbar isUser={false}/>
@@ -175,7 +202,7 @@ function AdminDashboard() {
             </div>
             <div className="flex justify-center items-center">
                 <div className="h-5/6 w-5/6">
-                    <Table columns={adminColumns} title={() => "Recent Loans"} pagination={{position: ["bottomCenter"]}}/>
+                    <Table columns={adminColumns} dataSource={loanData} title={() => "Recent Loans"} pagination={{position: ["bottomCenter"]}}/>
                 </div>
             </div>
         </div>

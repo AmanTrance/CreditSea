@@ -1,35 +1,45 @@
 import Search from "../assets/search.png";
 import { Table } from "antd";
-import { columns } from "../utils/columns";
+import { columns, LoanDetails, Status } from "../utils/columns";
 import Icon from "../assets/Icon.png";
 import Form from "./Form";
 import { useEffect, useState } from "react";
 import Close from "../assets/close.png";
 import Navbar from "./Navbar";
 import axios from "axios";
+import { v4 as uuid } from "uuid";
 
-type ResponseData = {
+export type ResponseData = {
     fullName: string,
-    loanTenure: number,
-    reason?: string,
     requiredAmount: string,
-    employmentStatus: string,
-    address1: string,
-    address2: string,
-    _id: string
+    dateApplied: Date,
+    loanStatus: Status
 }
 
 function UserDashboard() {
     const [form, setForm] = useState<boolean>(false);
+    const [loanData, setLoanData] = useState<LoanDetails[]>([]);
 
     useEffect(() => {
         const handleData = async () => {
             const response = await axios.get("http://localhost:3000/loan/many");
-            const data: ResponseData[] = response.data as ResponseData[];
-            console.log(data);
+            const data: { data?: ResponseData[] } = response.data as { data?: ResponseData[] };
+            if (data.data !== undefined) {
+                let result: LoanDetails[] = [];
+                for (let i of data.data) {
+                    result.push({
+                        "Loan Officer": i.fullName,
+                        "Amount": i.requiredAmount,
+                        "Date Applied": i.dateApplied.toString(),
+                        "Status": i.loanStatus,
+                        "key": uuid()
+                    });
+                }
+                setLoanData(result);
+            }
         }
         handleData();
-    }, [])
+    }, []);
 
     const handleForm = () => {
         if (form === false) {
@@ -78,7 +88,7 @@ function UserDashboard() {
             </div> 
         </div>
         <div className="h-4/6 w-3/4">
-            <Table columns={columns} title={() => "Applied Loans"} pagination={{position: ["bottomCenter"]}}/>
+            <Table columns={columns} dataSource={loanData} title={() => "Applied Loans"} pagination={{position: ["bottomCenter"]}}/>
         </div>
     </div>
     </>

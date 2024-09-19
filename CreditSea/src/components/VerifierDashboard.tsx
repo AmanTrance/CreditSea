@@ -22,11 +22,38 @@ import SavingsDash from "../assets/savingsdash.png";
 import RepaidDash from "../assets/repaiddash.png";
 import CashReceivedDash from "../assets/groupdash.png";
 import { Table } from "antd";
-import { verifierColumns } from "../utils/verifiercolumns";
+import { LoanDetailsVerifier, verifierColumns } from "../utils/verifiercolumns";
 import Navbar from "./Navbar";
+import { useEffect, useState } from "react";
+import { ResponseData } from "./UserDashboard";
+import { v4 as uuid } from "uuid";
+import axios from "axios";
 
 
 function VerifierDashboard() {
+    const [loanData, setLoanData] = useState<LoanDetailsVerifier[]>([]);
+
+    useEffect(() => {
+        const handleData = async () => {
+            const response = await axios.get("http://localhost:3000/loan/many");
+            const data: { data?: ResponseData[] } = response.data as { data?: ResponseData[] };
+            if (data.data !== undefined) {
+                let result: LoanDetailsVerifier[] = [];
+                for (let i of data.data) {
+                    result.push({
+                        "User Recent Activity": "just a check data",
+                        "Customer name": i.fullName,
+                        "Date": i.dateApplied.toString(),
+                        "Action": i.loanStatus,
+                        "key": uuid()
+                    });
+                }
+                setLoanData(result);
+            }
+        }
+        handleData();
+    }, []);    
+
   return (
     <div className="h-full w-full">
         <Navbar isVerifier={true}/>
@@ -148,7 +175,7 @@ function VerifierDashboard() {
             </div>
             <div className="flex justify-center items-center">
                 <div className="h-5/6 w-5/6">
-                    <Table columns={verifierColumns} title={() => "Applied Loans"} pagination={{position: ["bottomCenter"]}}/>
+                    <Table columns={verifierColumns} dataSource={loanData} title={() => "Applied Loans"} pagination={{position: ["bottomCenter"]}}/>
                 </div>
             </div>
         </div>

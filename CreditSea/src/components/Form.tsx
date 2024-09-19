@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Status } from "../utils/columns";
 
 type LoanDetails = {
     fullName: string,
@@ -7,7 +8,9 @@ type LoanDetails = {
     requiredAmount: string,
     employmentStatus: string,
     address1: string,
-    address2: string
+    address2: string,
+    dateApplied: Date,
+    loanStatus: Status
 }
 
 function Form() {
@@ -26,7 +29,9 @@ function Form() {
             requiredAmount: need.value,
             employmentStatus: status.value,
             address1: address1.value,
-            address2: address2.value
+            address2: address2.value,
+            dateApplied: new Date(),
+            loanStatus: Status.PENDING
         }
         try {
             await axios.post("http://localhost:3000/loan/create", loanDetails);

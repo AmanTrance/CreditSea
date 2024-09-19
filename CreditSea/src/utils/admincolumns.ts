@@ -6,7 +6,8 @@ export interface LoanDetailsAdmin{
     "User Details": string,
     "Customer name": string,
     "Date": string,
-    "Action": Status
+    "Action": Status,
+    "key": string
 }
 
 export const adminColumns: TableColumnsType<LoanDetailsAdmin> = [
@@ -26,8 +27,8 @@ export const adminColumns: TableColumnsType<LoanDetailsAdmin> = [
         key: uuid()
     },
     {
-        title: "Status",
-        dataIndex: "Status",
+        title: "Action",
+        dataIndex: "Action",
         key: uuid()
     }
 ] 

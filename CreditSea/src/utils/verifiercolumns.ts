@@ -6,7 +6,8 @@ export interface LoanDetailsVerifier{
     "User Recent Activity": string,
     "Customer name": string,
     "Date": string,
-    "Action": Status
+    "Action": Status,
+    "key": string
 }
 
 export const verifierColumns: TableColumnsType<LoanDetailsVerifier> = [
