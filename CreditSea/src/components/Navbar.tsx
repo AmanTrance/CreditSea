@@ -22,16 +22,16 @@ function Navbar(props: {
 
   return (
     <div className="h-16 w-full">
-        <nav className="grid grid-cols-[8fr_2fr] h-full w-full bg-white shadow-md">
-            <div className="flex items-center h-full w-full pl-4 font-extrabold text-green-700 text-2xl">
-                <p className="flex items-center w-2/6 h-full">CREDIT APP</p>
-                {props.isUser && <div className="flex items-center justify-evenly w-3/6 h-full"><img className="cursor-pointer" src={Home}></img><img className="cursor-pointer" src={Payments}></img><img className="cursor-pointer" src={Budget}></img><img className="cursor-pointer" src={Card}></img></div>}
+        <nav className="grid grid-cols-[7fr_3fr] h-full w-full bg-white shadow-md">
+            <div className="flex items-center h-full w-full pl-4 font-extrabold text-green-700">
+                <p className="flex items-center md:w-3/6 md:h-full w-2/6 text-sm md:text-2xl">CREDIT APP</p>
+                {props.isUser && <div className="flex items-center justify-evenly w-5/6 h-full"><img className="md:h-auto md:w-auto h-5 w-5 cursor-pointer" src={Home}></img><img className="md:h-auto md:w-auto h-5 w-5 cursor-pointer" src={Payments}></img><img className="md:h-auto md:w-auto h-5 w-5 cursor-pointer" src={Budget}></img><img className="md:h-auto md:w-auto h-5 w-5 cursor-pointer" src={Card}></img></div>}
             </div>
             <div className="flex items-center justify-evenly h-full w-full font-bold text-green-700">
-                <img className="cursor-pointer" src={Notification}></img>
-                <img className="cursor-pointer" src={Message}></img>
-                <img className="cursor-pointer" src={Profile}></img>
-                {role}
+                <img className="h-5 w-5 md:h-auto md:w-auto cursor-pointer" src={Notification}></img>
+                <img className="h-5 w-5 md:h-auto md:w-auto cursor-pointer" src={Message}></img>
+                <img className="h-5 w-5 md:h-auto md:w-auto cursor-pointer" src={Profile}></img>
+                <p className="hidden md:inline text-md">{role}</p>
                 <img className="cursor-pointer" src={Menu}></img>
             </div>
         </nav>
