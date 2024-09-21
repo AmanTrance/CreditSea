@@ -121,56 +121,56 @@ function VerifierDashboard() {
             <div className="grid grid-rows-[1.5fr_8.5fr]">
                 <div className="flex items-center pl-4 font-bold text-md xl:text-2xl text-[#0A512F]">Loans</div>
                 <div className="grid grid-rows-2 grid-cols-3 gap-4 p-4">
-                    <div className="grid grid-cols-1 sm:grid-cols-[4fr_6fr] xl:grid-cols-[2.5fr_7.5fr] bg-slate-500 shadow-md">
+                    <div className="grid grid-cols-1 sm:grid-cols-[4fr_6fr] xl:grid-cols-[2.5fr_7.5fr] shadow-md">
                         <div className="hidden sm:flex justify-center items-center bg-[#0A512F]">
                             <img className="h-10 w-10" src={LoansDash}></img>
                         </div>
-                        <div className="bg-white sm:w-full">
+                        <div className="bg-white sm:w-full rounded-lg sm:rounded-none">
                             <p className="w-full h-2/5 pl-1 sm:pl-4 pt-2 font-bold text-sm xl:text-2xl">50</p>
                             <p className="w-full h-2/5 pl-1 sm:pl-4 font-semibold text-sm xl:text-2xl">LOANS</p>
                         </div>
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-[4fr_6fr] xl:grid-cols-[2.5fr_7.5fr] bg-slate-500 shadow-md">
+                    <div className="grid grid-cols-1 sm:grid-cols-[4fr_6fr] xl:grid-cols-[2.5fr_7.5fr] shadow-md">
                         <div className="hidden sm:flex justify-center items-center bg-[#0A512F]">
                             <img className="h-10 w-10" src={BorrowerDash}></img>
                         </div>
-                        <div className="bg-white sm:w-full">
+                        <div className="bg-white sm:w-full rounded-lg sm:rounded-none">
                             <p className="w-full h-2/5 pl-1 sm:pl-4 pt-2 font-bold text-sm xl:text-2xl">100</p>
                             <p className="w-full h-2/5 pl-1 sm:pl-4 font-semibold text-sm xl:text-2xl">BORROWERS</p>
                         </div>
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-[4fr_6fr] xl:grid-cols-[2.5fr_7.5fr] bg-slate-500 shadow-md">
+                    <div className="grid grid-cols-1 sm:grid-cols-[4fr_6fr] xl:grid-cols-[2.5fr_7.5fr] shadow-md">
                         <div className="hidden sm:flex justify-center items-center bg-[#0A512F]">
                             <img className="h-10 w-10" src={CashDash}></img>
                         </div>
-                        <div className="bg-white sm:w-full">
+                        <div className="bg-white sm:w-full rounded-lg sm:rounded-none">
                             <p className="w-full h-2/5 pl-1 sm:pl-4 pt-2 font-bold text-sm xl:text-2xl">550,000</p>
                             <p className="w-full h-2/5 pl-1 sm:pl-4 font-semibold text-sm xl:text-2xl">CASH DISBURSED</p>
                         </div>
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-[4fr_6fr] xl:grid-cols-[2.5fr_7.5fr] bg-slate-500 shadow-md">
+                    <div className="grid grid-cols-1 sm:grid-cols-[4fr_6fr] xl:grid-cols-[2.5fr_7.5fr] shadow-md">
                         <div className="hidden sm:flex justify-center items-center bg-[#0A512F]">
                             <img className="h-10 w-10" src={SavingsDash}></img>
                         </div>
-                        <div className="bg-white sm:w-full">
+                        <div className="bg-white sm:w-full rounded-lg sm:rounded-none">
                             <p className="w-full h-2/5 pl-1 sm:pl-4 pt-2 font-bold text-sm xl:text-2xl">450,000</p>
                             <p className="w-full h-2/5 pl-1 sm:pl-4 font-semibold text-sm xl:text-2xl">SAVINGS</p>
                         </div>
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-[4fr_6fr] xl:grid-cols-[2.5fr_7.5fr] bg-slate-500 shadow-md">
+                    <div className="grid grid-cols-1 sm:grid-cols-[4fr_6fr] xl:grid-cols-[2.5fr_7.5fr] shadow-md">
                         <div className="hidden sm:flex justify-center items-center bg-[#0A512F]">
                             <img className="h-10 w-10" src={RepaidDash}></img>
                         </div>
-                        <div className="bg-white sm:w-full">
+                        <div className="bg-white sm:w-full rounded-lg sm:rounded-none">
                             <p className="w-full h-2/5 pl-1 sm:pl-4 pt-2 font-bold text-sm xl:text-2xl">30</p>
                             <p className="w-full h-2/5 pl-1 sm:pl-4 font-semibold text-sm xl:text-2xl">REPAID LOANS</p>
                         </div>
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-[4fr_6fr] xl:grid-cols-[2.5fr_7.5fr] bg-slate-500 shadow-md">
+                    <div className="grid grid-cols-1 sm:grid-cols-[4fr_6fr] xl:grid-cols-[2.5fr_7.5fr] shadow-md">
                         <div className="hidden sm:flex justify-center items-center bg-[#0A512F]">
                             <img className="h-10 w-10" src={CashReceivedDash}></img>
                         </div>
-                        <div className="bg-white sm:w-full">
+                        <div className="bg-white sm:w-full rounded-lg sm:rounded-none">
                             <p className="w-full h-2/5 pl-1 sm:pl-4 pt-2 font-bold text-sm xl:text-2xl">1,000,000</p>
                             <p className="w-full h-2/5 pl-1 sm:pl-4 font-semibold text-sm xl:text-2xl">CASH RECEIVED</p>
                         </div>
