@@ -28,10 +28,12 @@ import { useEffect, useState } from "react";
 import { ResponseData } from "./UserDashboard";
 import { v4 as uuid } from "uuid";
 import axios from "axios";
+import { useAppSelector } from "../utils/hooks";
 
 
 function VerifierDashboard() {
     const [loanData, setLoanData] = useState<LoanDetailsVerifier[]>([]);
+    const state = useAppSelector((state) => state.menu.state);
 
     useEffect(() => {
         const handleData = async () => {
@@ -55,126 +57,128 @@ function VerifierDashboard() {
     }, []);    
 
   return (
-    <div className="h-full w-full">
+    <div className="h-full w-full relative">
         <Navbar isVerifier={true}/>
-    <div className="grid grid-cols-[2fr_8fr] h-full w-full">
+    <div className="grid grid-cols-1 lg:grid-cols-[2fr_8fr] h-full w-full">
+        <div className={`h-full w-full ${state ? "absolute w-52": "hidden w-full"} lg:block menu z-10 overflow-y-scroll`}>
         <div className="grid grid-rows-[1fr_9fr]">
-            <div className="flex items-center bg-gray-800 text-[#ADCF1A] font-bold text-2xl">
+            <div className="flex items-center bg-gray-800 text-[#ADCF1A] font-bold text-md 2xl:text-2xl">
                 <img src={Profile} className=" pl-4 pr-4"></img>John Okoh
             </div>
             <div className="flex flex-col h-full w-full bg-[#0A512F]">
-                <div className="flex items-center w-full text-white text-xl font-bold h-14 pl-3 bg-[#0A512F] border-black cursor-pointer hover:h-16 hover:bg-green-800 transition-all duration-300 ease-in">
+                <button className="flex items-center w-full text-white text-sm 2xl:text-xl font-bold h-14 pl-3 bg-[#0A512F] border-black cursor-pointer hover:h-16 hover:bg-green-800 transition-all duration-300 ease-in">
                     <img src={Dashboard} className="pr-4"></img>Dashboard
-                </div>
-                <div className="flex items-center w-full text-white text-xl font-bold h-14 pl-3 border-t-2 bg-[#0A512F] border-black cursor-pointer hover:h-16 hover:bg-green-800 transition-all duration-300 ease-in">
+                </button>
+                <button className="flex items-center w-full text-white text-sm 2xl:text-xl font-bold h-14 pl-3 border-t-2 bg-[#0A512F] border-black cursor-pointer hover:h-16 hover:bg-green-800 transition-all duration-300 ease-in">
                     <img src={Borrowers} className="pr-4"></img>Borrowers
-                </div>
-                <div className="flex items-center w-full text-white text-xl font-bold h-14 pl-3 border-t-2 bg-[#0A512F] border-black cursor-pointer hover:h-16 hover:bg-green-800 transition-all duration-300 ease-in">
+                </button>
+                <button className="flex items-center w-full text-white text-sm 2xl:text-xl font-bold h-14 pl-3 border-t-2 bg-[#0A512F] border-black cursor-pointer hover:h-16 hover:bg-green-800 transition-all duration-300 ease-in">
                     <img src={Loans} className="pr-4"></img>Loans
-                </div>
-                <div className="flex items-center w-full text-white text-xl font-bold h-14 pl-3 border-t-2 bg-[#0A512F] border-black cursor-pointer hover:h-16 hover:bg-green-800 transition-all duration-300 ease-in">
+                </button>
+                <button className="flex items-center w-full text-white text-sm 2xl:text-xl font-bold h-14 pl-3 border-t-2 bg-[#0A512F] border-black cursor-pointer hover:h-16 hover:bg-green-800 transition-all duration-300 ease-in">
                     <img src={Repayments} className="pr-4"></img>Repayments
-                </div>
-                <div className="flex items-center w-full text-white text-xl font-bold h-14 pl-3 border-t-2 bg-[#0A512F] border-black cursor-pointer hover:h-16 hover:bg-green-800 transition-all duration-300 ease-in">
+                </button>
+                <button className="flex items-center w-full text-white text-sm 2xl:text-xl font-bold h-14 pl-3 border-t-2 bg-[#0A512F] border-black cursor-pointer hover:h-16 hover:bg-green-800 transition-all duration-300 ease-in">
                     <img src={Parameters} className="pr-4"></img>Loan Parameters
-                </div>
-                <div className="flex items-center w-full text-white text-xl font-bold h-14 pl-3 border-t-2 bg-[#0A512F] border-black cursor-pointer hover:h-16 hover:bg-green-800 transition-all duration-300 ease-in">
+                </button>
+                <button className="flex items-center w-full text-white text-sm 2xl:text-xl font-bold h-14 pl-3 border-t-2 bg-[#0A512F] border-black cursor-pointer hover:h-16 hover:bg-green-800 transition-all duration-300 ease-in">
                     <img src={Accounting} className="pr-4"></img>Accounting
-                </div>
-                <div className="flex items-center w-full text-white text-xl font-bold h-14 pl-3 border-t-2 bg-[#0A512F] border-black cursor-pointer hover:h-16 hover:bg-green-800 transition-all duration-300 ease-in">
+                </button>
+                <button className="flex items-center w-full text-white text-sm 2xl:text-xl font-bold h-14 pl-3 border-t-2 bg-[#0A512F] border-black cursor-pointer hover:h-16 hover:bg-green-800 transition-all duration-300 ease-in">
                     <img src={Reports} className="pr-4"></img>Reports
-                </div>
-                <div className="flex items-center w-full text-white text-xl font-bold h-14 pl-3 border-t-2 bg-[#0A512F] border-black cursor-pointer hover:h-16 hover:bg-green-800 transition-all duration-300 ease-in">
+                </button>
+                <button className="flex items-center w-full text-white text-sm 2xl:text-xl font-bold h-14 pl-3 border-t-2 bg-[#0A512F] border-black cursor-pointer hover:h-16 hover:bg-green-800 transition-all duration-300 ease-in">
                     <img src={Collateral} className="pr-4"></img>Collateral
-                </div>
-                <div className="flex items-center w-full text-white text-xl font-bold h-14 pl-3 border-t-2 bg-[#0A512F] border-black cursor-pointer hover:h-16 hover:bg-green-800 transition-all duration-300 ease-in">
+                </button>
+                <button className="flex items-center w-full text-white text-sm 2xl:text-xl font-bold h-14 pl-3 border-t-2 bg-[#0A512F] border-black cursor-pointer hover:h-16 hover:bg-green-800 transition-all duration-300 ease-in">
                     <img src={Access} className="pr-4"></img>Access Configuration
-                </div>
-                <div className="flex items-center w-full text-white text-xl font-bold h-14 pl-3 border-t-2 bg-[#0A512F] border-black cursor-pointer hover:h-16 hover:bg-green-800 transition-all duration-300 ease-in">
+                </button>
+                <button className="flex items-center w-full text-white text-sm 2xl:text-xl font-bold h-14 pl-3 border-t-2 bg-[#0A512F] border-black cursor-pointer hover:h-16 hover:bg-green-800 transition-all duration-300 ease-in">
                     <img src={Savings} className="pr-4"></img>Savings
-                </div>
-                <div className="flex items-center w-full text-white text-xl font-bold h-14 pl-3 border-t-2 bg-[#0A512F] border-black cursor-pointer hover:h-16 hover:bg-green-800 transition-all duration-300 ease-in">
+                </button>
+                <button className="flex items-center w-full text-white text-sm 2xl:text-xl font-bold h-14 pl-3 border-t-2 bg-[#0A512F] border-black cursor-pointer hover:h-16 hover:bg-green-800 transition-all duration-300 ease-in">
                     <img src={Expenses} className="pr-4"></img>Expenses
-                </div>
-                <div className="flex items-center w-full text-white text-xl font-bold h-14 pl-3 border-t-2 bg-[#0A512F] border-black cursor-pointer hover:h-16 hover:bg-green-800 transition-all duration-300 ease-in">
+                </button>
+                <button className="flex items-center w-full text-white text-sm 2xl:text-xl font-bold h-14 pl-3 border-t-2 bg-[#0A512F] border-black cursor-pointer hover:h-16 hover:bg-green-800 transition-all duration-300 ease-in">
                     <img src={Esign} className="pr-4"></img>E-Signature
-                </div>
-                <div className="flex items-center w-full text-white text-xl font-bold h-14 pl-3 border-t-2 bg-[#0A512F] border-black cursor-pointer hover:h-16 hover:bg-green-800 transition-all duration-300 ease-in">
+                </button>
+                <button className="flex items-center w-full text-white text-sm 2xl:text-xl font-bold h-14 pl-3 border-t-2 bg-[#0A512F] border-black cursor-pointer hover:h-16 hover:bg-green-800 transition-all duration-300 ease-in">
                     <img src={Investor} className="pr-4"></img>Investor Accounts
-                </div>
-                <div className="flex items-center w-full text-white text-xl font-bold h-14 pl-3 border-t-2 bg-[#0A512F] border-black cursor-pointer hover:h-16 hover:bg-green-800 transition-all duration-300 ease-in">
+                </button>
+                <button className="flex items-center w-full text-white text-sm 2xl:text-xl font-bold h-14 pl-3 border-t-2 bg-[#0A512F] border-black cursor-pointer hover:h-16 hover:bg-green-800 transition-all duration-300 ease-in">
                     <img src={Calender} className="pr-4"></img>Calender
-                </div>
-                <div className="flex items-center w-full text-white text-xl font-bold h-14 pl-3 border-t-2 bg-[#0A512F] border-black cursor-pointer hover:h-16 hover:bg-green-800 transition-all duration-300 ease-in">
+                </button>
+                <button className="flex items-center w-full text-white text-sm 2xl:text-xl font-bold h-14 pl-3 border-t-2 bg-[#0A512F] border-black cursor-pointer hover:h-16 hover:bg-green-800 transition-all duration-300 ease-in">
                     <img src={Settings} className="pr-4"></img>Settings
-                </div>
-                <div className="flex items-center w-full text-white text-xl font-bold h-14 pl-3 border-t-2 border-b-2 bg-[#0A512F] border-black cursor-pointer hover:h-16 hover:bg-green-800 transition-all duration-300 ease-in">
+                </button>
+                <button className="flex items-center w-full text-white text-sm 2xl:text-xl font-bold h-14 pl-3 border-t-2 border-b-2 bg-[#0A512F] border-black cursor-pointer hover:h-16 hover:bg-green-800 transition-all duration-300 ease-in">
                     <img src={Signout} className="pr-4"></img>Sign Out
-                </div>
+                </button>
             </div>
+        </div>
         </div>
         <div className="grid grid-rows-[3.5fr_6.5fr]">
             <div className="grid grid-rows-[1.5fr_8.5fr]">
-                <div className="flex items-center pl-4 font-bold text-3xl text-[#0A512F]">Loans</div>
+                <div className="flex items-center pl-4 font-bold text-md xl:text-2xl text-[#0A512F]">Loans</div>
                 <div className="grid grid-rows-2 grid-cols-3 gap-4 p-4">
-                    <div className="grid grid-cols-[2.5fr_7.5fr] bg-slate-500 shadow-md">
-                        <div className="flex justify-center items-center bg-[#0A512F]">
-                            <img src={LoansDash}></img>
+                    <div className="grid grid-cols-1 sm:grid-cols-[4fr_6fr] xl:grid-cols-[2.5fr_7.5fr] bg-slate-500 shadow-md">
+                        <div className="hidden sm:flex justify-center items-center bg-[#0A512F]">
+                            <img className="h-10 w-10" src={LoansDash}></img>
                         </div>
-                        <div className="bg-white">
-                            <p className="w-full h-2/4 pl-4 pt-4 font-bold text-3xl">50</p>
-                            <p className="w-full h-2/4 pl-4 pt-4 font-semibold text-3xl">LOANS</p>
-                        </div>
-                    </div>
-                    <div className="grid grid-cols-[2.5fr_7.5fr] bg-slate-500 shadow-md">
-                        <div className="flex justify-center items-center bg-[#0A512F]">
-                            <img src={BorrowerDash}></img>
-                        </div>
-                        <div className="bg-white">
-                            <p className="w-full h-2/4 pl-4 pt-4 font-bold text-3xl">100</p>
-                            <p className="w-full h-2/4 pl-4 pt-4 font-semibold text-3xl">BORROWERS</p>
+                        <div className="bg-white sm:w-full">
+                            <p className="w-full h-2/5 pl-1 sm:pl-4 pt-2 font-bold text-sm xl:text-2xl">50</p>
+                            <p className="w-full h-2/5 pl-1 sm:pl-4 font-semibold text-sm xl:text-2xl">LOANS</p>
                         </div>
                     </div>
-                    <div className="grid grid-cols-[2.5fr_7.5fr] bg-slate-500 shadow-md">
-                        <div className="flex justify-center items-center bg-[#0A512F]">
-                            <img src={CashDash}></img>
+                    <div className="grid grid-cols-1 sm:grid-cols-[4fr_6fr] xl:grid-cols-[2.5fr_7.5fr] bg-slate-500 shadow-md">
+                        <div className="hidden sm:flex justify-center items-center bg-[#0A512F]">
+                            <img className="h-10 w-10" src={BorrowerDash}></img>
                         </div>
-                        <div className="bg-white">
-                            <p className="w-full h-2/4 pl-4 pt-4 font-bold text-3xl">550,000</p>
-                            <p className="w-full h-2/4 pl-4 pt-4 font-semibold text-3xl">CASH DISBURSED</p>
-                        </div>
-                    </div>
-                    <div className="grid grid-cols-[2.5fr_7.5fr] bg-slate-500 shadow-md">
-                        <div className="flex justify-center items-center bg-[#0A512F]">
-                            <img src={SavingsDash}></img>
-                        </div>
-                        <div className="bg-white">
-                            <p className="w-full h-2/4 pl-4 pt-4 font-bold text-3xl">450,000</p>
-                            <p className="w-full h-2/4 pl-4 pt-4 font-semibold text-3xl">SAVINGS</p>
+                        <div className="bg-white sm:w-full">
+                            <p className="w-full h-2/5 pl-1 sm:pl-4 pt-2 font-bold text-sm xl:text-2xl">100</p>
+                            <p className="w-full h-2/5 pl-1 sm:pl-4 font-semibold text-sm xl:text-2xl">BORROWERS</p>
                         </div>
                     </div>
-                    <div className="grid grid-cols-[2.5fr_7.5fr] bg-slate-500 shadow-md">
-                        <div className="flex justify-center items-center bg-[#0A512F]">
-                            <img src={RepaidDash}></img>
+                    <div className="grid grid-cols-1 sm:grid-cols-[4fr_6fr] xl:grid-cols-[2.5fr_7.5fr] bg-slate-500 shadow-md">
+                        <div className="hidden sm:flex justify-center items-center bg-[#0A512F]">
+                            <img className="h-10 w-10" src={CashDash}></img>
                         </div>
-                        <div className="bg-white">
-                            <p className="w-full h-2/4 pl-4 pt-4 font-bold text-3xl">30</p>
-                            <p className="w-full h-2/4 pl-4 pt-4 font-semibold text-3xl">REPAID LOANS</p>
+                        <div className="bg-white sm:w-full">
+                            <p className="w-full h-2/5 pl-1 sm:pl-4 pt-2 font-bold text-sm xl:text-2xl">550,000</p>
+                            <p className="w-full h-2/5 pl-1 sm:pl-4 font-semibold text-sm xl:text-2xl">CASH DISBURSED</p>
                         </div>
                     </div>
-                    <div className="grid grid-cols-[2.5fr_7.5fr] bg-slate-500 shadow-md">
-                        <div className="flex justify-center items-center bg-[#0A512F]">
-                            <img src={CashReceivedDash}></img>
+                    <div className="grid grid-cols-1 sm:grid-cols-[4fr_6fr] xl:grid-cols-[2.5fr_7.5fr] bg-slate-500 shadow-md">
+                        <div className="hidden sm:flex justify-center items-center bg-[#0A512F]">
+                            <img className="h-10 w-10" src={SavingsDash}></img>
                         </div>
-                        <div className="bg-white">
-                            <p className="w-full h-2/4 pl-4 pt-4 font-bold text-3xl">1,000,000</p>
-                            <p className="w-full h-2/4 pl-4 pt-4 font-semibold text-3xl">CASH RECEIVED</p>
+                        <div className="bg-white sm:w-full">
+                            <p className="w-full h-2/5 pl-1 sm:pl-4 pt-2 font-bold text-sm xl:text-2xl">450,000</p>
+                            <p className="w-full h-2/5 pl-1 sm:pl-4 font-semibold text-sm xl:text-2xl">SAVINGS</p>
+                        </div>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-[4fr_6fr] xl:grid-cols-[2.5fr_7.5fr] bg-slate-500 shadow-md">
+                        <div className="hidden sm:flex justify-center items-center bg-[#0A512F]">
+                            <img className="h-10 w-10" src={RepaidDash}></img>
+                        </div>
+                        <div className="bg-white sm:w-full">
+                            <p className="w-full h-2/5 pl-1 sm:pl-4 pt-2 font-bold text-sm xl:text-2xl">30</p>
+                            <p className="w-full h-2/5 pl-1 sm:pl-4 font-semibold text-sm xl:text-2xl">REPAID LOANS</p>
+                        </div>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-[4fr_6fr] xl:grid-cols-[2.5fr_7.5fr] bg-slate-500 shadow-md">
+                        <div className="hidden sm:flex justify-center items-center bg-[#0A512F]">
+                            <img className="h-10 w-10" src={CashReceivedDash}></img>
+                        </div>
+                        <div className="bg-white sm:w-full">
+                            <p className="w-full h-2/5 pl-1 sm:pl-4 pt-2 font-bold text-sm xl:text-2xl">1,000,000</p>
+                            <p className="w-full h-2/5 pl-1 sm:pl-4 font-semibold text-sm xl:text-2xl">CASH RECEIVED</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div className="flex justify-center items-center">
-                <div className="h-5/6 w-5/6">
+                <div className="h-5/6 w-full md:w-5/6">
                     <Table columns={verifierColumns} dataSource={loanData} title={() => "Applied Loans"} pagination={{position: ["bottomCenter"]}}/>
                 </div>
             </div>
