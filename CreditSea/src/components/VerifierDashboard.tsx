@@ -60,7 +60,7 @@ function VerifierDashboard() {
     <div className="h-full w-full relative">
         <Navbar isVerifier={true}/>
     <div className="grid grid-cols-1 lg:grid-cols-[2fr_8fr] h-full w-full">
-        <div className={`h-full w-full ${state ? "absolute w-52": "hidden w-full"} lg:block menu z-10 overflow-y-scroll`}>
+        <div className={`h-full ${state ? "absolute w-52": "hidden w-full"} lg:block menu z-10 overflow-y-scroll`}>
         <div className="grid grid-rows-[1fr_9fr]">
             <div className="flex items-center bg-gray-800 text-[#ADCF1A] font-bold text-md 2xl:text-2xl">
                 <img src={Profile} className=" pl-4 pr-4"></img>John Okoh
