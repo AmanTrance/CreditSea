@@ -60,10 +60,10 @@ function VerifierDashboard() {
     <div className="h-full w-full relative">
         <Navbar isVerifier={true}/>
     <div className="grid grid-cols-1 lg:grid-cols-[2fr_8fr] h-full w-full">
-        <div className={`h-full ${state ? "absolute w-52": "hidden w-full"} lg:block menu z-10 overflow-y-scroll`}>
-        <div className="grid grid-rows-[1fr_9fr]">
+        <div className={`h-full ${state ? "absolute w-52": "hidden w-full"} lg:block menu z-10 overflow-y-scroll sm:no-scrollbar`}>
+        <div className="grid grid-rows-[1fr_9fr] sm:h-full">
             <div className="flex items-center bg-gray-800 text-[#ADCF1A] font-bold text-md 2xl:text-2xl">
-                <img src={Profile} className=" pl-4 pr-4"></img>John Okoh
+                <img src={Profile} className="pl-4 pr-4"></img>John Okoh
             </div>
             <div className="flex flex-col h-full w-full bg-[#0A512F]">
                 <button className="flex items-center w-full text-white text-sm 2xl:text-xl font-bold h-14 pl-3 bg-[#0A512F] border-black cursor-pointer hover:h-16 hover:bg-green-800 transition-all duration-300 ease-in">
